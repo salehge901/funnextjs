@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0D0C1D;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-onest);
+  --font-mono: var(--font-geist-mono);
+}
+
+html, body {
+  height: 100%;
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+html,
+main {
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@keyframes home-marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.home-marquee-track {
+  animation: home-marquee-left 28s linear infinite;
+  will-change: transform;
+}
+
+.home-marquee-wrap:hover .home-marquee-track,
+.home-marquee-wrap:focus-within .home-marquee-track {
+  animation-play-state: paused;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
